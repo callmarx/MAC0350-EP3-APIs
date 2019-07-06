@@ -12,4 +12,4 @@ default: &default
 
 development:
   <<: *default
-  database: <%= "#{ENV["DB_NAME_ACESSO"]}" %>
+  database: <%= "#{ENV["DB_NAME_INTER_ACESSO_PESSOA"]}" %>
