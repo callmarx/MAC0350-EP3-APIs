@@ -1,1 +1,10 @@
-xargs -n 1 cp -v ./m-acesso/<<<"/dir1/ /dir2/ /dir3/"
+# xargs -n 1 cp -v ./m-acesso/config/database.yml<<<"./m-pessoa/config/database.yml ./m-curriculo/config/database.yml ./im-acesso-pessoa/config/database.yml ./im-pessoa-curriculo/config/database.yml"
+# xargs -n 1 cp -v ./m-acesso/config/application.rb<<<"./m-pessoa/config/application.rb ./m-curriculo/config/application.rb ./im-acesso-pessoa/config/application.rb ./im-pessoa-curriculo/config/application.rb"
+# xargs -n 1 cp -v ./m-acesso/config/puma.rb<<<"./m-pessoa/config/puma.rb ./m-curriculo/config/puma.rb ./im-acesso-pessoa/config/puma.rb ./im-pessoa-curriculo/config/puma.rb"
+# xargs -n 1 cp -v ./m-acesso/Gemfile<<<"./m-pessoa/Gemfile ./m-curriculo/Gemfile ./im-acesso-pessoa/Gemfile ./im-pessoa-curriculo/Gemfile"
+
+sh -c "cd ./m-acesso && echo \"########  Instalando gemas em ./m-acesso ########\" && bundle install"
+sh -c "cd ./m-pessoa && echo \"########  Instalando gemas em ./m-pessoa ########\" && bundle install"
+sh -c "cd ./m-curriculo && echo \"########  Instalando gemas em ./m-curriculo ########\" && bundle install"
+sh -c "cd ./im-acesso-pessoa && echo \"########  Instalando gemas em ./im-acesso-pessoa ########\" && bundle install"
+sh -c "cd ./im-pessoa-curriculo && echo \"########  Instalando gemas em ./im-pessoa-curriculo ########\" && bundle install"
