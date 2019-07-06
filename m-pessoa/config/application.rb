@@ -17,7 +17,7 @@ require "action_cable/engine"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module MPessoa
+module MAcesso
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
@@ -31,5 +31,10 @@ module MPessoa
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    # Set timezone
+    config.time_zone = 'America/Sao_Paulo'
+    config.active_record.default_timezone = :local
+    # Loada variaveis ambientes usadas por todos os projetos
+    Dotenv.load('../env-var.env')
   end
 end
