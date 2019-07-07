@@ -51,6 +51,14 @@ class PlanejasController < ApplicationController
     end
   end
 
+  # DELETE /planejas/disciplina
+  def destroy_by_disciplina
+    @planejas = Planeja.where(disciplina_id: params[:disciplina_id])
+    @planejas.each do |planeja|
+      planeja.destroy
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_planeja
