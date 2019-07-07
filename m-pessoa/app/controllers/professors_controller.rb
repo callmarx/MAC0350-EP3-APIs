@@ -6,12 +6,12 @@ class ProfessorsController < ApplicationController
   def index
     @professors = Professor.all
 
-    render json: @professors
+    render json: @professors.to_json(:include => :especialidades)
   end
 
   # GET /professors/1
   def show
-    render json: @professor
+    render json: @professor.to_json(:include => :especialidades)
   end
 
   # POST /professors
@@ -19,7 +19,7 @@ class ProfessorsController < ApplicationController
     @professor = Professor.new(professor_params)
 
     if @professor.save
-      render json: @professor, status: :created, location: @professor
+      render json: @professor, status: :created
     else
       render json: @professor.errors, status: :unprocessable_entity
     end

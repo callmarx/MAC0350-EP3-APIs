@@ -6,12 +6,12 @@ class TrilhasController < ApplicationController
   def index
     @trilhas = Trilha.all
 
-    render json: @trilhas
+    render json: @trilhas.to_json(:include => :modulos)
   end
 
   # GET /trilhas/1
   def show
-    render json: @trilha
+    render json: @trilha.to_json(:include => :modulos)
   end
 
   # POST /trilhas
@@ -19,7 +19,7 @@ class TrilhasController < ApplicationController
     @trilha = Trilha.new(trilha_params)
 
     if @trilha.save
-      render json: @trilha, status: :created, location: @trilha
+      render json: @trilha, status: :created
     else
       render json: @trilha.errors, status: :unprocessable_entity
     end

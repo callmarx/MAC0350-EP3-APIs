@@ -19,7 +19,7 @@ class DisciplinasController < ApplicationController
     @disciplina = Disciplina.new(disciplina_params)
 
     if @disciplina.save
-      render json: @disciplina, status: :created, location: @disciplina
+      render json: @disciplina, status: :created
     else
       render json: @disciplina.errors, status: :unprocessable_entity
     end

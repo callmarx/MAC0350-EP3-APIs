@@ -19,7 +19,7 @@ class AdministradorsController < ApplicationController
     @administrador = Administrador.new(administrador_params)
 
     if @administrador.save
-      render json: @administrador, status: :created, location: @administrador
+      render json: @administrador, status: :created
     else
       render json: @administrador.errors, status: :unprocessable_entity
     end

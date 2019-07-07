@@ -11,6 +11,12 @@ Usuario.create(email:"liviasandraalmeida@gmail.com", password: "J6Ira9E7jh", pas
 Usuario.create(email:"giovanavanessasales@hotmail.com", password: "CJt3RjzyKj", password_confirmation: "CJt3RjzyKj")
 Usuario.create(email:"mmartinlorenzoseverinoviana@uol.com.br", password: "0RtSucatsa", password_confirmation: "0RtSucatsa")
 Usuario.create(email:"rrobertosebastiaodapaz@gmail.com", password: "FRFEJl0U65", password_confirmation: "FRFEJl0U65")
+Usuario.create(email:"saratereza.araujo@gmail.com", password: "kKlAEazxmy", password_confirmation: "kKlAEazxmy")
+Usuario.create(email:"leonardoyuri79@gmail.com", password: "IJNIj4kRkY", password_confirmation: "IJNIj4kRkY")
+Usuario.create(email:"cesarenricomoura83@rjnet.com.br", password: "wUH2BwGiQE", password_confirmation: "wUH2BwGiQE")
+Usuario.create(email:"ccalebeedsondavimonteiro@fileno.com.br", password: "yNDuAI1biL", password_confirmation: "yNDuAI1biL")
+Usuario.create(email:"luccafrancisco.rafaelnunes@bds.com.br", password: "jQRUElAz0p", password_confirmation: "jQRUElAz0p")
+
 servico = Servico.create(criar: false, deletar: false, atualizar: false, ler: true)
 Perfil.create(servico: servico, data_cria: Time.now)
 servico = Servico.create(criar: true, deletar: true, atualizar: true, ler: true)

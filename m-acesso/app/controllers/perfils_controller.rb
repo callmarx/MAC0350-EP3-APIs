@@ -19,7 +19,7 @@ class PerfilsController < ApplicationController
     @perfil = Perfil.new(perfil_params)
 
     if @perfil.save
-      render json: @perfil, status: :created, location: @perfil
+      render json: @perfil, status: :created
     else
       render json: @perfil.errors, status: :unprocessable_entity
     end

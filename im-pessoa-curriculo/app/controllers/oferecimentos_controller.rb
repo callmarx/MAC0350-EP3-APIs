@@ -6,12 +6,12 @@ class OferecimentosController < ApplicationController
   def index
     @oferecimentos = Oferecimento.all
 
-    render json: @oferecimentos
+    render json: @oferecimentos.to_json(:include => :cursas)
   end
 
   # GET /oferecimentos/1
   def show
-    render json: @oferecimento
+    render json: @oferecimento.to_json(:include => :cursas)
   end
 
   # POST /oferecimentos
@@ -19,7 +19,7 @@ class OferecimentosController < ApplicationController
     @oferecimento = Oferecimento.new(oferecimento_params)
 
     if @oferecimento.save
-      render json: @oferecimento, status: :created, location: @oferecimento
+      render json: @oferecimento, status: :created
     else
       render json: @oferecimento.errors, status: :unprocessable_entity
     end

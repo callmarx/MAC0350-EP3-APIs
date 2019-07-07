@@ -19,7 +19,7 @@ class CurriculosController < ApplicationController
     @curriculo = Curriculo.new(curriculo_params)
 
     if @curriculo.save
-      render json: @curriculo, status: :created, location: @curriculo
+      render json: @curriculo, status: :created
     else
       render json: @curriculo.errors, status: :unprocessable_entity
     end

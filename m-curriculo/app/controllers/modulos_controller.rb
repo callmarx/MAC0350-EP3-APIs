@@ -19,7 +19,7 @@ class ModulosController < ApplicationController
     @modulo = Modulo.new(modulo_params)
 
     if @modulo.save
-      render json: @modulo, status: :created, location: @modulo
+      render json: @modulo, status: :created
     else
       render json: @modulo.errors, status: :unprocessable_entity
     end

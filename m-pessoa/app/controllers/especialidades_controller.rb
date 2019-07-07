@@ -19,7 +19,7 @@ class EspecialidadesController < ApplicationController
     @especialidade = Especialidade.new(especialidade_params)
 
     if @especialidade.save
-      render json: @especialidade, status: :created, location: @especialidade
+      render json: @especialidade, status: :created
     else
       render json: @especialidade.errors, status: :unprocessable_entity
     end

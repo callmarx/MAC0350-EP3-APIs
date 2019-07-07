@@ -19,7 +19,7 @@ class PessoasController < ApplicationController
     @pessoa = Pessoa.new(pessoa_params)
 
     if @pessoa.save
-      render json: @pessoa, status: :created, location: @pessoa
+      render json: @pessoa, status: :created
     else
       render json: @pessoa.errors, status: :unprocessable_entity
     end

@@ -19,7 +19,7 @@ class UsuariosController < ApplicationController
     @usuario = Usuario.new(usuario_params)
 
     if @usuario.save
-      render json: @usuario.as_json(only: [:id, :email]), status: :created, location: @usuario
+      render json: @usuario.as_json(only: [:id, :email]), status: :created
     else
       render json: {erro: "cadastro não foi relizado", situação: @usuario.errors}, status: :unprocessable_entity
     end

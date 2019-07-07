@@ -9,6 +9,11 @@ class CursasController < ApplicationController
     render json: @cursas
   end
 
+  # GET /cursas/aluno
+  def index_aluno
+    @cursas = Cursa.where(aluno_id: params[:aluno_id])
+  end
+
   # GET /cursas/1
   def show
     render json: @cursa
@@ -19,7 +24,7 @@ class CursasController < ApplicationController
     @cursa = Cursa.new(cursa_params)
 
     if @cursa.save
-      render json: @cursa, status: :created, location: @cursa
+      render json: @cursa, status: :created
     else
       render json: @cursa.errors, status: :unprocessable_entity
     end

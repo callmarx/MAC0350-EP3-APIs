@@ -19,7 +19,7 @@ class AlunosController < ApplicationController
     @aluno = Aluno.new(aluno_params)
 
     if @aluno.save
-      render json: @aluno, status: :created, location: @aluno
+      render json: @aluno, status: :created
     else
       render json: @aluno.errors, status: :unprocessable_entity
     end

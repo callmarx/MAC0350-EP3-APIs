@@ -19,7 +19,7 @@ class ServicosController < ApplicationController
     @servico = Servico.new(servico_params)
 
     if @servico.save
-      render json: @servico, status: :created, location: @servico
+      render json: @servico, status: :created
     else
       render json: @servico.errors, status: :unprocessable_entity
     end

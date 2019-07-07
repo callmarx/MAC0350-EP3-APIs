@@ -9,6 +9,10 @@ class PlanejasController < ApplicationController
     render json: @planejas
   end
 
+  # GET /planejas/aluno
+  def index_aluno
+    @planejas = Planeja.where(aluno_id: params[:aluno_id])
+  end
   # GET /planejas/1
   def show
     render json: @planeja
@@ -19,7 +23,7 @@ class PlanejasController < ApplicationController
     @planeja = Planeja.new(planeja_params)
 
     if @planeja.save
-      render json: @planeja, status: :created, location: @planeja
+      render json: @planeja, status: :created
     else
       render json: @planeja.errors, status: :unprocessable_entity
     end
