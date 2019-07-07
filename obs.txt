@@ -1,0 +1,5 @@
+Rails + JWT
+https://medium.com/binar-academy/rails-api-jwt-authentication-a04503ea3248
+
+Relação Join no Rails
+https://rubyplus.com/articles/3451-Has-Many-Through-and-Has-and-Belongs-to-Many-in-Rails-5
