@@ -44,6 +44,14 @@ class CursasController < ApplicationController
     @cursa.destroy
   end
 
+  # DELETE /cursas/aluno
+  def destroy_by_aluno
+    @cursas = Cursa.where(aluno_id: params[:aluno_id])
+    @cursas.each do |cursa|
+      cursa.destroy
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cursa
