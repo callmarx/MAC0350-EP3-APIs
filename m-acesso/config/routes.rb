@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :usuarios
+  resources :perfils
+  resources :servicos
+
+  resources :users, param: :_username
+  post '/login', to: 'authentication#login'
+  #post '/signup', to: 'usuarios#create'
 end
