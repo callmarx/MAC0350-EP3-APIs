@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_07_07_030335) do
 
   create_table "administradors", force: :cascade do |t|
     t.string "cargo"
-    t.decimal "salario", precision: 5, scale: 2
+    t.decimal "salario", precision: 8, scale: 2
     t.bigint "pessoa_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2019_07_07_030335) do
   create_table "professors", force: :cascade do |t|
     t.string "instituto"
     t.string "sala"
-    t.decimal "salario", precision: 5, scale: 2
+    t.decimal "salario", precision: 8, scale: 2
     t.bigint "pessoa_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
