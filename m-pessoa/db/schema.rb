@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_07_07_030335) do
 
   create_table "administradors", force: :cascade do |t|
     t.string "cargo"
-    t.decimal "salario", precision: 8, scale: 2
+    t.decimal "salario", precision: 8, scale: 2, null: false
     t.bigint "pessoa_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_07_07_030335) do
 
   create_table "alunos", force: :cascade do |t|
     t.string "instituto"
-    t.string "curso"
+    t.string "curso", null: false
     t.integer "semestre"
     t.bigint "pessoa_id"
     t.datetime "created_at", null: false
@@ -43,11 +43,11 @@ ActiveRecord::Schema.define(version: 2019_07_07_030335) do
   end
 
   create_table "pessoas", force: :cascade do |t|
-    t.string "nusp"
+    t.string "nusp", null: false
     t.string "cpf"
-    t.string "pnome"
+    t.string "pnome", null: false
     t.string "mnome"
-    t.string "snome"
+    t.string "snome", null: false
     t.string "end_cep"
     t.string "end_rua"
     t.string "end_numero"
@@ -60,17 +60,17 @@ ActiveRecord::Schema.define(version: 2019_07_07_030335) do
   end
 
   create_table "professors", force: :cascade do |t|
-    t.string "instituto"
+    t.string "instituto", null: false
     t.string "sala"
-    t.decimal "salario", precision: 8, scale: 2
+    t.decimal "salario", precision: 8, scale: 2, null: false
     t.bigint "pessoa_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pessoa_id"], name: "index_professors_on_pessoa_id"
   end
 
-  add_foreign_key "administradors", "pessoas"
-  add_foreign_key "alunos", "pessoas"
-  add_foreign_key "especialidades", "professors"
-  add_foreign_key "professors", "pessoas"
+  add_foreign_key "administradors", "pessoas", on_delete: :cascade
+  add_foreign_key "alunos", "pessoas", on_delete: :cascade
+  add_foreign_key "especialidades", "professors", on_delete: :cascade
+  add_foreign_key "professors", "pessoas", on_delete: :cascade
 end

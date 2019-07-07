@@ -5,8 +5,8 @@ class CreateOferecimentos < ActiveRecord::Migration[5.2]
       t.integer :creditos
       t.integer :semestre_ideal
       t.string :turma
-      t.date :ofe_data
-      t.integer :disciplina_id
+      t.date :ofe_data, null: false
+      t.integer :disciplina_id, null: false
 
       t.timestamps
     end

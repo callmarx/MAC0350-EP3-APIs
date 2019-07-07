@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_07_07_003802) do
   enable_extension "plpgsql"
 
   create_table "perfils", force: :cascade do |t|
-    t.date "data_cria"
+    t.date "data_cria", null: false
     t.bigint "servico_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,20 +31,21 @@ ActiveRecord::Schema.define(version: 2019_07_07_003802) do
   end
 
   create_table "servicos", force: :cascade do |t|
-    t.boolean "editar"
-    t.boolean "ler"
-    t.boolean "deletar"
-    t.boolean "atualizar"
+    t.boolean "editar", null: false
+    t.boolean "ler", null: false
+    t.boolean "deletar", null: false
+    t.boolean "atualizar", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "usuarios", force: :cascade do |t|
-    t.string "email"
+    t.string "email", null: false
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_usuarios_on_email", unique: true
   end
 
-  add_foreign_key "perfils", "servicos"
+  add_foreign_key "perfils", "servicos", on_delete: :cascade
 end

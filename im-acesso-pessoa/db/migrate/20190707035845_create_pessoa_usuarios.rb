@@ -1,7 +1,7 @@
 class CreatePessoaUsuarios < ActiveRecord::Migration[5.2]
   def change
     create_table :pessoa_usuarios do |t|
-      t.integer :pessoa_id
+      t.integer :pessoa_id, null: false
       t.integer :usuario_id
 
       t.timestamps

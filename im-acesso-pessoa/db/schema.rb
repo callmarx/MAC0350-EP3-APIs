@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_07_07_035845) do
   enable_extension "plpgsql"
 
   create_table "pessoa_usuarios", force: :cascade do |t|
-    t.integer "pessoa_id"
+    t.integer "pessoa_id", null: false
     t.integer "usuario_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_07_07_032417) do
   end
 
   create_table "modulos", force: :cascade do |t|
-    t.string "nome"
+    t.string "nome", null: false
     t.bigint "trilha_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,10 +57,10 @@ ActiveRecord::Schema.define(version: 2019_07_07_032417) do
   end
 
   create_table "trilhas", force: :cascade do |t|
-    t.string "nome"
+    t.string "nome", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "modulos", "trilhas"
+  add_foreign_key "modulos", "trilhas", on_delete: :cascade
 end

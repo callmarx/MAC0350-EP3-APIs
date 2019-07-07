@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_07_07_043834) do
   enable_extension "plpgsql"
 
   create_table "cursas", force: :cascade do |t|
-    t.integer "aluno_id"
+    t.integer "aluno_id", null: false
     t.bigint "oferecimento_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,20 +29,20 @@ ActiveRecord::Schema.define(version: 2019_07_07_043834) do
     t.integer "creditos"
     t.integer "semestre_ideal"
     t.string "turma"
-    t.date "ofe_data"
-    t.integer "disciplina_id"
+    t.date "ofe_data", null: false
+    t.integer "disciplina_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "planejas", force: :cascade do |t|
-    t.integer "aluno_id"
-    t.integer "disciplina_id"
+    t.integer "aluno_id", null: false
+    t.integer "disciplina_id", null: false
     t.decimal "nota", precision: 4, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["aluno_id", "disciplina_id"], name: "index_planejas_on_aluno_id_and_disciplina_id", unique: true
   end
 
-  add_foreign_key "cursas", "oferecimentos"
+  add_foreign_key "cursas", "oferecimentos", on_delete: :cascade
 end

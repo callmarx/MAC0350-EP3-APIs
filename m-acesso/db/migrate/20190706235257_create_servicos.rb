@@ -1,10 +1,10 @@
 class CreateServicos < ActiveRecord::Migration[5.2]
   def change
     create_table :servicos do |t|
-      t.boolean :editar
-      t.boolean :ler
-      t.boolean :deletar
-      t.boolean :atualizar
+      t.boolean :editar, null: false
+      t.boolean :ler, null: false
+      t.boolean :deletar, null: false
+      t.boolean :atualizar, null: false
 
       t.timestamps
     end

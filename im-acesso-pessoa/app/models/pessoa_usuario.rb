@@ -1,3 +1,3 @@
 class PessoaUsuario < ApplicationRecord
-    validates :pessoa_id, uniqueness: true
+    validates :pessoa_id, presence: true, uniqueness: true
 end
