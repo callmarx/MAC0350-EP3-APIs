@@ -46,6 +46,6 @@ class CurriculosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def curriculo_params
-      params.require(:curriculo).permit(:amd_id, :curso, :turma, :credito_acum)
+      params.require(:curriculo).permit(:adm_id, :curso, :turma, :credito_acum)
     end
 end

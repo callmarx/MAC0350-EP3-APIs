@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(version: 2019_07_07_032417) do
   enable_extension "plpgsql"
 
   create_table "curriculos", force: :cascade do |t|
-    t.integer "amd_id"
+    t.integer "adm_id"
     t.string "curso"
     t.string "turma"
     t.integer "credito_acum"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["amd_id"], name: "index_curriculos_on_amd_id", unique: true
+    t.index ["adm_id"], name: "index_curriculos_on_adm_id", unique: true
   end
 
   create_table "curriculos_trilhas", id: false, force: :cascade do |t|
