@@ -1,4 +1,5 @@
 class TrilhasController < ApplicationController
+  before_action :authorize_request
   before_action :set_trilha, only: [:show, :update, :destroy]
 
   # GET /trilhas

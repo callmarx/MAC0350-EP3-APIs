@@ -1,4 +1,5 @@
 class ModulosController < ApplicationController
+  before_action :authorize_request
   before_action :set_modulo, only: [:show, :update, :destroy]
 
   # GET /modulos

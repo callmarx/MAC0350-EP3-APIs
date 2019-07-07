@@ -1,4 +1,5 @@
 class EspecialidadesController < ApplicationController
+  before_action :authorize_request
   before_action :set_especialidade, only: [:show, :update, :destroy]
 
   # GET /especialidades

@@ -1,4 +1,5 @@
 class OferecimentosController < ApplicationController
+  before_action :authorize_request
   before_action :set_oferecimento, only: [:show, :update, :destroy]
 
   # GET /oferecimentos

@@ -1,4 +1,5 @@
 class ProfessorsController < ApplicationController
+  before_action :authorize_request
   before_action :set_professor, only: [:show, :update, :destroy]
 
   # GET /professors

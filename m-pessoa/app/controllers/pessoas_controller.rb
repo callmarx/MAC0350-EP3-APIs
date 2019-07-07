@@ -1,4 +1,5 @@
 class PessoasController < ApplicationController
+  before_action :authorize_request
   before_action :set_pessoa, only: [:show, :update, :destroy]
 
   # GET /pessoas

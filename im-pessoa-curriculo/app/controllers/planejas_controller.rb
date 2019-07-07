@@ -1,4 +1,5 @@
 class PlanejasController < ApplicationController
+  before_action :authorize_request
   before_action :set_planeja, only: [:show, :update, :destroy]
 
   # GET /planejas

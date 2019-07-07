@@ -1,4 +1,5 @@
 class CurriculosController < ApplicationController
+  before_action :authorize_request
   before_action :set_curriculo, only: [:show, :update, :destroy]
 
   # GET /curriculos

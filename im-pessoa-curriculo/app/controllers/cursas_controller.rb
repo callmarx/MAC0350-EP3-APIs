@@ -1,4 +1,5 @@
 class CursasController < ApplicationController
+  before_action :authorize_request
   before_action :set_cursa, only: [:show, :update, :destroy]
 
   # GET /cursas

@@ -1,4 +1,5 @@
 class PerfilsController < ApplicationController
+  before_action :authorize_request
   before_action :set_perfil, only: [:show, :update, :destroy]
 
   # GET /perfils

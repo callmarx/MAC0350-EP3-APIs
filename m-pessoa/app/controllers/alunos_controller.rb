@@ -1,4 +1,5 @@
 class AlunosController < ApplicationController
+  before_action :authorize_request
   before_action :set_aluno, only: [:show, :update, :destroy]
 
   # GET /alunos

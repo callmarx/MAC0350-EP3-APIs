@@ -1,4 +1,5 @@
 class ServicosController < ApplicationController
+  before_action :authorize_request
   before_action :set_servico, only: [:show, :update, :destroy]
 
   # GET /servicos
