@@ -1,4 +1,4 @@
 class Disciplina < ApplicationRecord
   has_and_belongs_to_many :modulos
-  validates :prof_id, uniqueness: true
+  validates :sigla, uniqueness: true
 end

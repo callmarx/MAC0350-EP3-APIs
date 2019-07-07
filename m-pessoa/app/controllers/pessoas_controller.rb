@@ -36,7 +36,13 @@ class PessoasController < ApplicationController
 
   # DELETE /pessoas/1
   def destroy
-    @pessoa.destroy
+    begin
+      RestClient.delete("#{ENV['API_IM_ACESSO_PESSOA_HOST']}/pessoa_usuarios/#{@pessoa.id}", {Authorization: "Bearer #{ENV['API_JWT_TOKEN']}", content_type: :json})
+      @pessoa.destroy
+    rescue RestClient::ExceptionWithResponse => e
+      render json: {erro: "Houve algum problema na exclusão de Usuario-Pessoa no Inter Modulo Acesso-Pessoa", resposta: e.response}
+    end
+
   end
 
   private

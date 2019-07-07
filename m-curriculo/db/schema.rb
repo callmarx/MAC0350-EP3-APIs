@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_07_07_032417) do
     t.string "disc_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["prof_id"], name: "index_disciplinas_on_prof_id", unique: true
+    t.index ["sigla"], name: "index_disciplinas_on_sigla", unique: true
   end
 
   create_table "disciplinas_modulos", id: false, force: :cascade do |t|

@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_07_07_003802) do
   end
 
   create_table "servicos", force: :cascade do |t|
-    t.boolean "editar", null: false
+    t.boolean "criar", null: false
     t.boolean "ler", null: false
     t.boolean "deletar", null: false
     t.boolean "atualizar", null: false

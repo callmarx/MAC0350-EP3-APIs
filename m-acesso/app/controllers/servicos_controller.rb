@@ -47,6 +47,6 @@ class ServicosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def servico_params
-      params.require(:servico).permit(:editar, :ler, :deletar, :atualizar)
+      params.require(:servico).permit(:criar, :ler, :deletar, :atualizar)
     end
 end
