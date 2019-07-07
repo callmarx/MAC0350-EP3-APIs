@@ -1,3 +1,5 @@
 class Pessoa < ApplicationRecord
-  has_many :professor
+  has_one :professor
+  has_one :aluno
+  has_one :administrador
 end

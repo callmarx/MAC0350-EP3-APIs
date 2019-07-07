@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2019_07_07_003802) do
   create_table "perfils_usuarios", id: false, force: :cascade do |t|
     t.bigint "perfil_id", null: false
     t.bigint "usuario_id", null: false
+    t.index ["perfil_id", "usuario_id"], name: "index_perfils_usuarios_on_perfil_id_and_usuario_id"
+    t.index ["usuario_id", "perfil_id"], name: "index_perfils_usuarios_on_usuario_id_and_perfil_id"
   end
 
   create_table "servicos", force: :cascade do |t|
