@@ -26,11 +26,11 @@ while getopts "hbmsk" option; do
       ;;
     b)
       ## Bundle install nas 5 APIs
-      sh -c "cd ./m-acesso && echo \"Instalando gemas em ./m-acesso ... ... ...\" && bundle"
-      sh -c "cd ./m-pessoa && echo \"Instalando gemas em ./m-pessoa ... ... ...\" && bundle"
-      sh -c "cd ./m-curriculo && echo \"Instalando gemas em ./m-curriculo ... ... ...\" && bundle"
-      sh -c "cd ./im-acesso-pessoa && echo \"Instalando gemas em ./im-acesso-pessoa ... ... ...\" && bundle"
-      sh -c "cd ./im-pessoa-curriculo && echo \"Instalando gemas em ./im-pessoa-curriculo ... ... ...\" && bundle"
+      sh -c "cd ./m-acesso && echo \"Instalando gemas em ./m-acesso ... ... ...\" && bundle install"
+      sh -c "cd ./m-pessoa && echo \"Instalando gemas em ./m-pessoa ... ... ...\" && bundle install"
+      sh -c "cd ./m-curriculo && echo \"Instalando gemas em ./m-curriculo ... ... ...\" && bundle install"
+      sh -c "cd ./im-acesso-pessoa && echo \"Instalando gemas em ./im-acesso-pessoa ... ... ...\" && bundle install"
+      sh -c "cd ./im-pessoa-curriculo && echo \"Instalando gemas em ./im-pessoa-curriculo ... ... ...\" && bundle install"
       ;;
     m)
       ## rails db:drop rails db:create rails db:migrate rails db:seed nas 5 APIs

@@ -39,6 +39,14 @@ class CurriculosController < ApplicationController
     @curriculo.destroy
   end
 
+  # DELETE /curriculos/administrador/1
+  def destroy_by_administrador
+    @curriculos = Curriculo.where(adm_id: params[:adm_id])
+    @curriculos.each do |curriculo|
+      curriculo.destroy
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_curriculo

@@ -37,7 +37,15 @@ class AlunosController < ApplicationController
   # DELETE /alunos/1
   def destroy
     @aluno.destroy
+    begin
+      RestClient.delete("#{ENV['API_IM_PESSOA_CURRICULO_HOST']}/planejas/aluno/#{@aluno.id}", {Authorization: "Bearer #{ENV['API_JWT_TOKEN']}", content_type: :json})
+      @aluno.destroy
+    rescue RestClient::ExceptionWithResponse => e
+      render json: {erro: "Houve algum problema na exclusão de Planeja no Inter Modulo Pessoa-Curriculo", resposta: e.response}
+    end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

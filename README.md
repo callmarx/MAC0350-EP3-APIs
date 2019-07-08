@@ -1,6 +1,8 @@
-# MAC0350- EXERCÍCIO-PROGRAMA III: FINALIZAÇÃO E DEPLOYMENT
-#### Objetivo deste trabalho
-Estruturar os módulos do projeto de gestão de grades curriculares usando um sistema composto de múltiplas bases de dados com uso de APIs que se comunicarão por meio de algum protocolo
+# EXERCÍCIO-PROGRAMA III: FINALIZAÇÃO E DEPLOYMENT
+
+#### Resumo
+Projeto final da disciplina MAC0350 - Introdução ao Desenvolvimento de Sistemas de Software, ministrada no 1º semestre de 2019 pelo professor [João Eduardo Ferreira](https://www.ime.usp.br/~jef/) e o monitor [Décio Lauro Soares](https://github.com/deciolauro) ao curso de Bacharelado em Ciências da Computação no Instituto de Matemática e Estatística da Universidade São Paulo.
+
 #### Integrantes
 * Eugenio Augusto Jimenes NºUSP: 7118981 eugenio.jimenes@usp.br
 * Andre Akira Hayashi NºUSP: 9293011 andre.hayashi@usp.br
@@ -40,6 +42,24 @@ você deve obter o seguinte:
 $ rails -v
 Rails 5.2.3
 ```
+#### Bundle
+Utilizamos o bundle 2, logo você deve obter:
+```
+$ bundle -v
+Bundler version 2.0.1
+```
+Caso seja uma versão menor execute:
+```
+$ gem install bundle
+```
+
+## PostgreSQL
+Certifique-se que voce possui a versão 9.4 ou maior. Para instalação e configuração veja na documtentação oficial da sua distribuição linux. Neste projeto utilizamos a versão 11.4
+```
+$ postgres -V
+postgres (PostgreSQL) 11.4
+```
+
 ## Dependências, banco de dados e execução das APIs
 OBS: Usaremos o [script.sh](script.sh) para executar os comandos necessarios nas 5 APIs. Isto deve ser feito na pasta raíz do projeto.
 
@@ -62,7 +82,7 @@ $ ./script.sh -s
 $ ./script.sh -k
 ```
 #### Observação
-As APIs usam variáveis ambiente que foram definadas no arquivo [env-var.env](env-var.env), configrado via [dotenv-rails](https://github.com/bkeepers/dotenv).
+As APIs utilizam variáveis ambiente que foram definadas no arquivo [env-var.env](env-var.env), configrado via [dotenv-rails](https://github.com/bkeepers/dotenv).
 
 ## Uso/testes das APIs
 Com o comando de execução dos web-servers do item anterior basta utilizar sua ferramente de preferência para testar as requisições (Ex: Postman, curl, Ruby NET::Http, etc)
