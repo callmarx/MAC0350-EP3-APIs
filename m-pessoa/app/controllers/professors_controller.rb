@@ -36,7 +36,12 @@ class ProfessorsController < ApplicationController
 
   # DELETE /professors/1
   def destroy
-    @professor.destroy
+    begin
+      RestClient.delete("#{ENV['API_M_CURRICULO_HOST']}/disciplina/professor/#{@professor.id}", {Authorization: "Bearer #{ENV['API_JWT_TOKEN']}", content_type: :json})
+      @professor.destroy
+    rescue RestClient::ExceptionWithResponse => e
+      render json: {erro: "Houve algum problema na exclusão de Disciplinas no Modulo Curriculo", resposta: e.response}
+    end
   end
 
   private

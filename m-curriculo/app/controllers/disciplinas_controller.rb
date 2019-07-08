@@ -44,6 +44,19 @@ class DisciplinasController < ApplicationController
     end
   end
 
+  # DELETE /disciplinas/professor/1
+  def destroy_by_professor
+    @disciplinas = Disciplina.where(prof_id: params[:prof_id])
+    @disciplinas.each do |disciplina|
+      begin
+        RestClient.delete("#{ENV['API_IM_PESSOA_CURRICULO_HOST']}/planejas/disciplina/#{disciplina.id}", {Authorization: "Bearer #{ENV['API_JWT_TOKEN']}", content_type: :json})
+        disciplina.destroy
+      rescue RestClient::ExceptionWithResponse => e
+        render json: {erro: "Houve algum problema na exclusão de Planeja no Inter Modulo Pessoa-Curriculo", resposta: e.response}
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_disciplina
