@@ -39,9 +39,10 @@ class AlunosController < ApplicationController
     @aluno.destroy
     begin
       RestClient.delete("#{ENV['API_IM_PESSOA_CURRICULO_HOST']}/planejas/aluno/#{@aluno.id}", {Authorization: "Bearer #{ENV['API_JWT_TOKEN']}", content_type: :json})
+      RestClient.delete("#{ENV['API_IM_PESSOA_CURRICULO_HOST']}/cursas/aluno/#{@aluno.id}", {Authorization: "Bearer #{ENV['API_JWT_TOKEN']}", content_type: :json})
       @aluno.destroy
     rescue RestClient::ExceptionWithResponse => e
-      render json: {erro: "Houve algum problema na exclusão de Planeja no Inter Modulo Pessoa-Curriculo", resposta: e.response}
+      render json: {erro: "Houve algum problema na exclusão de Planeja ou Cursas no Inter Modulo Pessoa-Curriculo", resposta: e.response}
     end
   end
 

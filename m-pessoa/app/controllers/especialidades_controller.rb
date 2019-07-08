@@ -6,12 +6,12 @@ class EspecialidadesController < ApplicationController
   def index
     @especialidades = Especialidade.all
 
-    render json: @especialidades
+    render json: @especialidades.to_json(:include => :professor)
   end
 
   # GET /especialidades/1
   def show
-    render json: @especialidade
+    render json: @especialidade.to_json(:include => :professor)
   end
 
   # POST /especialidades
