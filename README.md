@@ -84,6 +84,39 @@ $ ./script.sh -k
 #### Observação
 As APIs utilizam variáveis ambiente que foram definadas no arquivo [env-var.env](env-var.env), configrado via [dotenv-rails](https://github.com/bkeepers/dotenv).
 
+## Ubuntu 18.04
+Alguns dos seguintes erros/soluções podem ocorrer com as instalações do PostgreSQL + ruby + Rails:
+#### Ao executar os web-servers (opção -s do script.sh)
+Se obtiver
+```
+you must use bundler 2 
+```
+Execute:
+```
+gem install bundle
+```
+
+Se obtiver
+```
+can't find gem bundler (>= 0.a) with executable bundle (Gem::GemNotFoundException)
+```
+Execute:
+```
+gem update --system
+```
+#### Ao executar as migrações de db (opção -m do script.sh)
+Se obtiver
+```
+PG::ConnectionBad: fe_sendauth: no password supplied
+```
+Edite o arquivo [env-var.env](env-var.env), e remova *localhost* da variavel *DB\_HOST* (deixando nada depois do =), ficando assim:
+```
+...
+DB_HOST=
+...
+```
+
+
 ## Uso/testes das APIs
 Com o comando de execução dos web-servers do item anterior basta utilizar sua ferramente de preferência para testar as requisições (Ex: Postman, curl, Ruby NET::Http, etc)
 #### Postman
